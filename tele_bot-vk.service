@@ -1,0 +1,20 @@
+[Unit]
+Description=TeleBot VK Registration Bot
+After=network.target
+
+[Service]
+Type=simple
+User=cubinez85
+Group=cubinez85
+WorkingDirectory=/home/cubinez85/tele_bot
+Environment="PATH=/home/cubinez85/tele_bot/venv/bin"
+# Токен теперь берётся из .env, но можно оставить и здесь для подстраховки
+#Environment="VK_TOKEN=vk1.a.ВАШ_КЛЮЧ"
+ExecStart=/home/cubinez85/tele_bot/venv/bin/python /home/cubinez85/tele_bot/bot_vk.py
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
