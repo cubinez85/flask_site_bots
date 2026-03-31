@@ -1,0 +1,16 @@
+[Unit]
+Description=Telegram Bot Service
+After=network.target
+
+[Service]
+User=cubinez85
+Group=cubinez85
+WorkingDirectory=/home/cubinez85/tele_bot/
+ExecStart=/home/cubinez85/tele_bot/venv/bin/python /home/cubinez85/tele_bot/bot_service.py
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
